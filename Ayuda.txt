@@ -1,0 +1,55 @@
+    ***************************************************************
+    **                                                           **
+    **                  000_dc_plantilla                         **
+    **                                                           **
+    ***************************************************************
+- 000_dc_plantilla
+	- TITULO: Bootstrap 4 by Example
+	- REFERENCIAS
+		- https://www.youtube.com/watch?v=UAHfAbc8JkY&list=PL0lNJEnwfVVNQIpSNDeJrLWW6cwHLelTO&index=2
+
+	- PASOS
+		- INSTALACION
+			- npm init -y
+			- npm install bootstrap@next
+			- npm install popper.js
+			- npm i gulp browser-sync gulp-sass --save-dev
+      - Configurar gulpfile.js
+				- Herramienta que nos permite automatizar tareas. (https://www.youtube.com/watch?v=GQxp4V0XDAw)
+			- Ejecutar gulp
+				- gulp
+
+
+	- Explicación GULP 
+		- Métodos
+			- gulp.task();
+				- Definición de tareas
+					- Parámetros
+						- Nombre
+						- Listado de tareas a ejecutarse antes de la final
+						- Función q indique lo que va a hacer esta tarea.
+			- gulp.src();
+				- Ruta de origen, de dónde tomará los archivos
+			- gulp.dest();
+				- Ruta de destino, a dónde dejará los archivos
+			- gulp.watch();
+
+			- pipe 
+				- Coger datos q se están procesando y pasarlos a otro pluging.
+
+		- Ejemplo básico
+			gulp.task('myTask´', () => 
+			  gulp.src('./origen')
+					.pipe(plugin1)
+					.pipe(plugin2)
+					.pipe(plugin3)
+					.pipe(gulp.dest('./destino'))
+			);
+			gulp.watch('./origen', ['myTask']);
+
+			gulp myTask;
+
+			gulp.task('default', () => {
+				gulp.watch('./origen', ['myTask']);
+			});
+			
